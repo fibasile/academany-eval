@@ -91,8 +91,8 @@ A.app({
                     name: Fields.text('Name'),
                     date: Fields.date('Date'),
                     session: Fields.text('Session name').readOnly(),
-                    students: Fields.relation('Registered Students', 'StudentsForSession', 'session'),
-                    presented_students: Fields.relation('Students who Presented', 'StudentsForSessionPresented', 'session')
+                    students: Fields.relation('Registered Students', 'StudentsForSession', 'final_project_session'),
+                    presented_students: Fields.relation('Students who Presented', 'StudentsForSessionPresented', 'final_project_session')
                     
                 },
                 beforeSave: function(Entity) {
