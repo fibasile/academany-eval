@@ -72,7 +72,9 @@ A.app({
                     },
                     MissingFinalProject: {
                         title: 'Missing Final Project',
-                        filtering: 'final_project_session = null'                        
+                        filtering: function (Queries) {
+                            return Queries.filtering({final_project_session: null});
+                        }                       
                     },
                     StudentsForSession: {
                         showInGrid: ['lab','student_id', 'name', 'surname','final_project_presented']
