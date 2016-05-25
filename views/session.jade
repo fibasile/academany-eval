@@ -1,0 +1,19 @@
+extends main
+include mixins
+
+block vars
+    - var hasToolbar = true
+block content
+     .container.screen-container
+         h1 Session Timing
+         div(ng-controller="ScheduleController")
+             p(ng-repeat="item in items") {{ item }}
+block js
+    script(src='/assets/lib/js/angular-ui-sortable/sortable.js')
+    script(src='/assets/js/views/entity.js')
+    script().
+        var scheduleController = angular.module('fabacademy-schedule', ['allcount', 'ui.sortable']);
+        scheduleController.controller('ScheduleController', ['$scope', 'rest', '$q', function ($scope, rest, $q) {
+            $scope.items = ['a','b','c'];
+        }]);
+    
