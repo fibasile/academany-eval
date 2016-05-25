@@ -1,9 +1,10 @@
 var injection = require('allcountjs');
 var path = require('path');
 var students_json = path.join(__dirname, 'students.json');
+var port = process.env.PORT || 8080;
 
-injection.bindFactory('port', process.ENV.PORT);
-injection.bindFactory('dbUrl', process.ENV.MONGODB_URI); // 'mongodb://localhost:27017/academany');
+injection.bindFactory('port', port);
+injection.bindFactory('dbUrl', process.env.MONGODB_URI); // 'mongodb://localhost:27017/academany');
 injection.bindFactory('gitRepoUrl', 'app-config');
 // injection.bindFactory('gitRepoUrl', 'https://github.com/foo/bar.git');
 
