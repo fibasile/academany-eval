@@ -217,7 +217,7 @@ A.app({
                 },
                 beforeSave: function(Entity, Crud) {
 
-                    Entity.session = Entity.name + ' ' + Entity.date.toISOString().slice(0, 10);
+                    Entity.session = Entity.name;
                     var crud = Crud.crudFor('Student');
                     return crud.find({
                         filtering: {
