@@ -16,7 +16,7 @@ module.exports = function(app, appAccessRouter, express) {
                 var studentsCrud = Crud.crudForEntityType('Student');
                 var sessions = [];
 
-                sessionsCrud.find({}).then(function(items) {
+                sessionsCrud.find({sorting: [ {date: 1}]}).then(function(items) {
                     Console.log('Starting');
                     sessions = items;
                     return Q.all(
