@@ -25,7 +25,11 @@ module.exports = function(app, appAccessRouter, express) {
                             return studentsCrud.find({
                                 filtering: {
                                     final_project_session: item.id
-                                }
+                                },
+                                sorting: [
+                                    ['continent', 1],
+                                    ['country', 1]
+                                ]
                             })
                             // .populate("lab")
                             .then(function(students) {

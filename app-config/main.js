@@ -3,6 +3,7 @@ A.app({
     appIcon: 'globe',
     allowSignUp: false,
     onlyAuthenticated: true,
+    roles: ['instruct', 'eval'],
     menuItems: [{
         name: 'Students',
         icon: 'users',
@@ -40,6 +41,11 @@ A.app({
             Student: {
                 title: 'Students',
                 referenceName: 'fullname',
+                permissions: {
+                    read: null,
+                    write: ['instruct','eval'],
+                    delete: []  
+                },
                 fields: {
                     student_id: Fields.text('Student ID').required(),
                     fullname: Fields.text('Full name').readOnly(),
@@ -201,6 +207,11 @@ A.app({
             Session: {
                 title: 'Session',
                 referenceName: 'session',
+                permissions: {
+                    read: null,
+                    write: ['instruct','eval'],
+                    delete: ['eval']  
+                },
                 fields: {
                     name: Fields.text('Name'),
                     date: Fields.date('Date'),
@@ -231,6 +242,11 @@ A.app({
             Lab: {
                 title: 'Lab',
                 referenceName: 'name',
+                permissions: {
+                    read: null,
+                    write: ['instruct','eval'],
+                    delete: []  
+                },
                 fields: {
                     lab_id: Fields.text('Lab ID'),
                     name: Fields.text('Name'),
