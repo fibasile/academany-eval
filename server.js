@@ -2,7 +2,7 @@ var injection = require('allcountjs');
 var path = require('path');
 var students_json = path.join(__dirname, 'students.json');
 var port = process.env.PORT || 8080;
-var dbURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/academany';
+var dbURL = process.env.MONGOLAB_BLACK_URI || 'mongodb://localhost:27017/academany';
 
 injection.bindFactory('port', port);
 injection.bindFactory('dbUrl', dbURL);
