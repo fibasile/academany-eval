@@ -184,11 +184,7 @@ A.app({
                     },
                     MissingFinalProject: {
                         title: 'Missing Final Project',
-                        filtering: function(Queries) {
-                            return Queries.filtering({
-                                final_project_session: null
-                            });
-                        }
+                        filtering: 'final_project_session = null',
                     },
                     StudentsForLab: {
                         title: 'Enrolled Students',
