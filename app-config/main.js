@@ -192,7 +192,8 @@ A.app({
                             "final_project_session" : {
                                 "$exists": false
                             }]
-                        }
+                        },
+                         sorting: [[ 'lab.name', 1 ]]
                     },
                     StudentsForLab: {
                         title: 'Enrolled Students',
