@@ -185,12 +185,13 @@ A.app({
                     MissingFinalProject: {
                         title: 'Missing Final Project',
                         filtering: {
+                            $or : [
                             "final_project_session" : {
                                 "$type": 10
                             },
                             "final_project_session" : {
                                 "$exists": false
-                            }
+                            }]
                         }
                     },
                     StudentsForLab: {
