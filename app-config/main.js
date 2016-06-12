@@ -36,15 +36,15 @@ A.app({
     entities: function(Fields) {
         return {
             User: {
-                
+
             },
             Student: {
                 title: 'Students',
                 referenceName: 'fullname',
                 permissions: {
                     read: null,
-                    write: ['instruct','eval'],
-                    delete: []  
+                    write: ['instruct', 'eval'],
+                    delete: []
                 },
                 fields: {
                     student_id: Fields.text('Student ID').required(),
@@ -89,7 +89,7 @@ A.app({
                             return Actions.refreshResult();
                         });
                     }
-                },  {
+                }, {
                     id: 'complete',
                     name: 'Mark complete',
                     actionTarget: 'single-item',
@@ -104,7 +104,7 @@ A.app({
                             return Actions.refreshResult();
                         });
                     }
-                },  {
+                }, {
                     id: 'needseval',
                     name: 'Need Re-Eval',
                     actionTarget: 'single-item',
@@ -165,8 +165,8 @@ A.app({
                         });
                     }
                 },
-                afterSave: function(Entity, Crud,Q) {
-                    return updateSessionCounts(Crud,Q);
+                afterSave: function(Entity, Crud, Q) {
+                    return updateSessionCounts(Crud, Q);
                 },
                 views: {
                     FinalProjectSchedule: {
@@ -185,15 +185,20 @@ A.app({
                     MissingFinalProject: {
                         title: 'Missing Final Project',
                         filtering: {
-                            $or : [
-                            "final_project_session" : {
-                                "$type": 10
-                            },
-                            "final_project_session" : {
-                                "$exists": false
-                            }]
+                            $or: {
+                                [
+                                    "final_project_session": {
+                                        "$type": 10
+                                    }
+                                }, {
+                                    "final_project_session": {
+                                        "$exists": false
+                                    }
+                                }]
                         },
-                         sorting: [[ 'lab.name', 1 ]]
+                        sorting: [
+                            ['lab.name', 1]
+                        ]
                     },
                     StudentsForLab: {
                         title: 'Enrolled Students',
@@ -214,8 +219,8 @@ A.app({
                 referenceName: 'session',
                 permissions: {
                     read: null,
-                    write: ['instruct','eval'],
-                    delete: ['eval']  
+                    write: ['instruct', 'eval'],
+                    delete: ['eval']
                 },
                 fields: {
                     name: Fields.text('Name'),
@@ -249,8 +254,8 @@ A.app({
                 referenceName: 'name',
                 permissions: {
                     read: null,
-                    write: ['instruct','eval'],
-                    delete: []  
+                    write: ['instruct', 'eval'],
+                    delete: []
                 },
                 fields: {
                     lab_id: Fields.text('Lab ID'),
@@ -269,13 +274,13 @@ A.app({
     }
 });
 
-function updateSessionCounts(Crud,Q) {
+function updateSessionCounts(Crud, Q) {
     var crud = Crud.crudFor('Session');
 
     return crud.find({}).then(function(items) {
         return Q.all(
             items.map(function(session) {
-           
+
                 return Crud.crudFor('Student').find({
                     filtering: {
                         final_project_session: session.id
