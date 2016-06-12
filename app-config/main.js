@@ -184,7 +184,11 @@ A.app({
                     },
                     MissingFinalProject: {
                         title: 'Missing Final Project',
-                        filtering: 'final_project_session = null',
+                        filtering: {
+                            "final_project_session" : {
+                                $type: 10
+                            }
+                        }
                     },
                     StudentsForLab: {
                         title: 'Enrolled Students',
