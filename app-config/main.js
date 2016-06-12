@@ -186,7 +186,10 @@ A.app({
                         title: 'Missing Final Project',
                         filtering: {
                             "final_project_session" : {
-                                $type: 10
+                                "$type": 10
+                            },
+                            "final_project_session" : {
+                                "$exists": false
                             }
                         }
                     },
