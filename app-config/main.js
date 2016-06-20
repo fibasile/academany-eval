@@ -44,7 +44,7 @@ A.app({
                 permissions: {
                     read: null,
                     write: ['instruct', 'eval'],
-                    delete: []
+                    delete: ['eval']
                 },
                 fields: {
                     student_id: Fields.text('Student ID').required(),
