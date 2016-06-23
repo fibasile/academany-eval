@@ -28,9 +28,25 @@ A.app({
             icon: 'table',
             entityTypeId: 'FinalProjectPresented'
         }, {
+            name: 'Not Presented',
+            icon: 'table',
+            entityTypeId: 'FinalProjectNotPresented'
+        }, {
             name: 'Missing',
             icon: 'table',
             entityTypeId: 'MissingFinalProject'
+        }, {
+            name: 'Featured',
+            icon: 'table',
+            entityTypeId: 'FeaturedStudents'
+        }]
+    }. {
+        name: 'Evaluations',
+        icon: 'table',
+        children: [{
+            name: 'Ready for Evaluation',
+            icon: 'table',
+            entityTypeId: 'StudentsReadyForEval'
         }]
     }],
     entities: function(Fields) {
@@ -54,6 +70,7 @@ A.app({
                     email: Fields.email('Email').required(),
                     website: Fields.link('Website'),
                     notes: Fields.textarea('Notes'),
+                    featured: Fields.checkbox('Featured'),
                     graduated: Fields.checkbox('Graduated').readOnly(),
                     completed: Fields.checkbox('Completed').readOnly(),
                     needs_eval: Fields.checkbox('Needs Re-evaluation').readOnly(),
@@ -182,24 +199,37 @@ A.app({
                         title: 'Final Project Presented',
                         filtering: 'final_project_presented = true',
                     },
+                    FinalProjectNotPresented: {
+                        title: 'Final Project Presented',
+                        filtering: 'final_project_presented = false',
+                    },
                     MissingFinalProject: {
                         title: 'Missing Final Project',
                         filtering: {
                             $or: [{
-                                    "final_project_session": {
-                                        "$type": 10
-                                    },
+                                "final_project_session": {
+                                    "$type": 10
                                 },
-                                {
-                                    "final_project_session": {
-                                        "$exists": false
-                                    }
-                                }]
+                            }, {
+                                "final_project_session": {
+                                    "$exists": false
+                                }
+                            }, {
+                                "final_project_presented": false
+                            }]
                         },
                         sorting: [
                             ["surname", 1],
                             ["name", 1]
                         ]
+                    },
+                    StudentsReadyForEval: {
+                        title: 'Ready for Evaluation',
+                        filtering: 'complete = true',
+                    },
+                    FeaturedStudents: {
+                        title: 'Featured Projects',
+                        filtering: 'featured = true',
                     },
                     StudentsForLab: {
                         title: 'Enrolled Students',
