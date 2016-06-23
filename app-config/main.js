@@ -200,7 +200,7 @@ A.app({
                         filtering: 'final_project_presented = true',
                     },
                     FinalProjectNotPresented: {
-                        title: 'Final Project Presented',
+                        title: 'Final Project Not Presented',
                         filtering: 'final_project_presented = false',
                     },
                     MissingFinalProject: {
@@ -225,7 +225,7 @@ A.app({
                     },
                     StudentsReadyForEval: {
                         title: 'Ready for Evaluation',
-                        filtering: 'complete = true',
+                        filtering: 'completed = true',
                     },
                     FeaturedStudents: {
                         title: 'Featured Projects',
