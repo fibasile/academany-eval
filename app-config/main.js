@@ -40,7 +40,7 @@ A.app({
             icon: 'table',
             entityTypeId: 'FeaturedStudents'
         }]
-    }. {
+    }, {
         name: 'Evaluations',
         icon: 'table',
         children: [{
