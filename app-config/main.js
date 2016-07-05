@@ -47,6 +47,14 @@ A.app({
             name: 'Ready for Evaluation',
             icon: 'table',
             entityTypeId: 'StudentsReadyForEval'
+        }, {
+            name: 'Reviewers',
+            icon: 'table',
+            entityTypeId: 'Reviewers'
+        }, {
+            name: 'Reviews',
+            icon: 'table',
+            entityTypeId: 'Reviews'
         }]
     }],
     entities: function(Fields) {
@@ -243,6 +251,36 @@ A.app({
                         filtering: 'final_project_presented = true'
                     }
 
+                }
+            },
+            Reviewer: {
+                title: 'Reviewer',
+                referenceName: 'reviewer',
+                permissions: {
+                    read: ['eval'],
+                    write: ['eval'],
+                    delete: null
+                },
+                fields: {
+                    name: Fields.text('Name'),
+                    email: Fields.Text('Email'),
+                    reviews: Fields.Relation('Reviews', 'Reviews','reviewer')
+                }
+            },
+            Review: {
+                title: 'Review',
+                referenceName: 'review',
+                permissions: {
+                    read: ['eval'],
+                    write: ['eval'],
+                    delete: null
+                },
+                fields: {
+                    student: Fields.FixedReference('Student', 'Student'),
+                    reviewer: Fields.FixedReference('Reviewer', 'Reviewer'),
+                    graduated: Fields.checkbox('Graduated'),
+                    next_cycle: Fields.checkbox('Next cycle')
+                    comments: Fields.text('Comments')
                 }
             },
             Session: {
