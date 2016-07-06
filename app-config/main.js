@@ -297,7 +297,10 @@ A.app({
                 fields: {
                     name: Fields.text('Name'),
                     email: Fields.text('Email'),
-                    reviews: Fields.relation('Reviews', 'Review', 'reviewer')
+                    reviews: Fields.relation('Reviews', 'Review', 'reviewer'),
+                    pending: Fields.relation('Assigned', 'ReviewsPending', 'reviewer'),
+                    progress: Fields.relation('In progress', 'ReviewsProgress', 'reviewer'),
+                    done: Fields.relation('Completed', 'ReviewsCompleted', 'reviewer')
                 },
                 sorting: [
                     ['name', 1]
@@ -330,7 +333,28 @@ A.app({
                     graduated: Fields.checkbox('Graduated'),
                     next_cycle: Fields.checkbox('Next cycle'),
                     comments: Fields.text('Comments')
+                },
+                views: {
+                    ReviewsPending: {
+                        title: 'Pending'
+                        filtering: function (Queries) {
+                            return Queries.filtering({'status.value': 'Assigned'});
+                        }
+                    },
+                    ReviewsProgress: {
+                        title: 'In Progress'
+                        filtering: function (Queries) {
+                            return Queries.filtering({'status.value': 'In Progress'});
+                        }
+                    },
+                    ReviewsCompleted: {
+                        title: 'Completed',
+                        filtering: function (Queries) {
+                            return Queries.filtering({'status.value': 'Completed'});
+                        }
+                    }
                 }
+                
             },
             Session: {
                 title: 'Session',
