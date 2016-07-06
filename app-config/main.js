@@ -48,6 +48,22 @@ A.app({
             icon: 'table',
             entityTypeId: 'StudentsReadyForEval'
         }, {
+            name: 'Needing Re-Evaluation',
+            icon: 'table',
+            entityTypeId: 'StudentsNeedingEval'
+        }, {
+            name: 'Graduated',
+            icon: 'table',
+            entityTypeId: 'StudentsGraduated' 
+        }, {
+            name: 'Featured',
+            icon: 'table',
+            entityTypeId: 'FeaturedStudents' 
+        }, {
+            name: 'Next Cycle',
+            icon: 'table',
+            entityTypeId: 'NextCycleStudents'  
+        }, {
             name: 'Reviewers',
             icon: 'table',
             entityTypeId: 'Reviewers'
@@ -82,6 +98,7 @@ A.app({
                     graduated: Fields.checkbox('Graduated').readOnly(),
                     completed: Fields.checkbox('Completed').readOnly(),
                     needs_eval: Fields.checkbox('Needs Re-evaluation').readOnly(),
+                    next_cycle: Fields.checkbox('Next Cycle'),
                     lab: Fields.fixedReference('Lab', 'Lab'),
                     final_project_session: Fields.fixedReference("Project presentation", "Session"),
                     final_project_presented: Fields.checkbox('Project presented'),
@@ -233,7 +250,19 @@ A.app({
                     },
                     StudentsReadyForEval: {
                         title: 'Ready for Evaluation',
-                        filtering: 'completed = true',
+                        filtering: 'completed = true'
+                    },
+                    StudentsNeedingEval: {
+                        title: 'Needing Re-Evaluation',
+                        filtering: 'needs_eval = true'
+                    },
+                    NextCycleStudents: {
+                        title: 'Next Cycle',
+                        filtering: 'next_cycle = true'  
+                    },
+                    StudentsGraduated: {
+                        title: 'Graduated',
+                        filtering: 'graduated = true'
                     },
                     FeaturedStudents: {
                         title: 'Featured Projects',
@@ -255,7 +284,7 @@ A.app({
             },
             Reviewer: {
                 title: 'Reviewer',
-                referenceName: 'reviewer',
+                referenceName: 'name',
                 permissions: {
                     read: ['eval'],
                     write: ['eval'],
@@ -267,9 +296,16 @@ A.app({
                     reviews: Fields.Relation('Reviews', 'Reviews','reviewer')
                 }
             },
+            ReviewStatus: {
+                title: 'Review Status',
+                referenceName: 'value',
+                fields: {
+                    review: Fields.FixedReference('Review','Review'),
+                    value: Fields.text('Value')
+                }
+            },
             Review: {
                 title: 'Review',
-                referenceName: 'review',
                 permissions: {
                     read: ['eval'],
                     write: ['eval'],
@@ -278,6 +314,7 @@ A.app({
                 fields: {
                     student: Fields.FixedReference('Student', 'Student'),
                     reviewer: Fields.FixedReference('Reviewer', 'Reviewer'),
+                    status: Fields.FixedReference('Status', 'ReviewStatus'),
                     graduated: Fields.checkbox('Graduated'),
                     next_cycle: Fields.checkbox('Next cycle')
                     comments: Fields.text('Comments')
