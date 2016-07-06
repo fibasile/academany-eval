@@ -300,7 +300,7 @@ A.app({
                 title: 'Review Status',
                 referenceName: 'value',
                 fields: {
-                    review: Fields.FixedReference('Review', 'Review'),
+                    review: Fields.fixedReference('Review', 'Review'),
                     value: Fields.text('Value')
                 }
             },
@@ -312,9 +312,9 @@ A.app({
                     delete: null
                 },
                 fields: {
-                    student: Fields.FixedReference('Student', 'Student'),
-                    reviewer: Fields.FixedReference('Reviewer', 'Reviewer'),
-                    status: Fields.FixedReference('Status', 'ReviewStatus'),
+                    student: Fields.fixedReference('Student', 'Student'),
+                    reviewer: Fields.fixedReference('Reviewer', 'Reviewer'),
+                    status: Fields.fixedReference('Status', 'ReviewStatus'),
                     graduated: Fields.checkbox('Graduated'),
                     next_cycle: Fields.checkbox('Next cycle'),
                     comments: Fields.text('Comments')
