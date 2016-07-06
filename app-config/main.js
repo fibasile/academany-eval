@@ -71,6 +71,10 @@ A.app({
             name: 'Reviews',
             icon: 'table',
             entityTypeId: 'Review'
+        }, {
+            name: 'Statuses',
+            icon: 'table',
+            entityTypeId: 'ReviewStatus'
         }]
     }],
     entities: function(Fields) {
