@@ -54,15 +54,15 @@ A.app({
         }, {
             name: 'Graduated',
             icon: 'table',
-            entityTypeId: 'StudentsGraduated' 
+            entityTypeId: 'StudentsGraduated'
         }, {
             name: 'Featured',
             icon: 'table',
-            entityTypeId: 'FeaturedStudents' 
+            entityTypeId: 'FeaturedStudents'
         }, {
             name: 'Next Cycle',
             icon: 'table',
-            entityTypeId: 'NextCycleStudents'  
+            entityTypeId: 'NextCycleStudents'
         }, {
             name: 'Reviewers',
             icon: 'table',
@@ -258,7 +258,7 @@ A.app({
                     },
                     NextCycleStudents: {
                         title: 'Next Cycle',
-                        filtering: 'next_cycle = true'  
+                        filtering: 'next_cycle = true'
                     },
                     StudentsGraduated: {
                         title: 'Graduated',
@@ -293,14 +293,14 @@ A.app({
                 fields: {
                     name: Fields.text('Name'),
                     email: Fields.Text('Email'),
-                    reviews: Fields.Relation('Reviews', 'Reviews','reviewer')
+                    reviews: Fields.Relation('Reviews', 'Reviews', 'reviewer')
                 }
             },
             ReviewStatus: {
                 title: 'Review Status',
                 referenceName: 'value',
                 fields: {
-                    review: Fields.FixedReference('Review','Review'),
+                    review: Fields.FixedReference('Review', 'Review'),
                     value: Fields.text('Value')
                 }
             },
