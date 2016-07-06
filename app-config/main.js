@@ -66,11 +66,11 @@ A.app({
         }, {
             name: 'Reviewers',
             icon: 'table',
-            entityTypeId: 'Reviewers'
+            entityTypeId: 'Reviewer'
         }, {
             name: 'Reviews',
             icon: 'table',
-            entityTypeId: 'Reviews'
+            entityTypeId: 'Review'
         }]
     }],
     entities: function(Fields) {
