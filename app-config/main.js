@@ -68,13 +68,17 @@ A.app({
             icon: 'table',
             entityTypeId: 'Reviewer'
         }, {
-            name: 'Reviews',
+            name: 'Evaluation summary',
             icon: 'table',
             entityTypeId: 'Review'
         }, {
-            name: 'Statuses',
+            name: 'Waiting for Evaluation',
             icon: 'table',
-            entityTypeId: 'ReviewStatus'
+            entityTypeId: 'ReviewsPending'
+        }, {
+            name: 'Evaluation completed',
+            icon: 'table',
+            entityTypeId: 'ReviewsCompleted'
         }]
     }],
     entities: function(Fields) {
@@ -307,7 +311,7 @@ A.app({
                 ]
             },
             ReviewStatus: {
-                title: 'Review Status',
+                title: 'Evaluations Status',
                 referenceName: 'value',
                 fields: {
                     value: Fields.text('Value')
@@ -317,7 +321,7 @@ A.app({
                 ]
             },
             Review: {
-                title: 'Review',
+                title: 'Evaluations',
                 permissions: {
                     read: ['eval'],
                     write: ['eval'],
