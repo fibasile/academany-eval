@@ -304,7 +304,6 @@ A.app({
                 title: 'Review Status',
                 referenceName: 'value',
                 fields: {
-                    review: Fields.fixedReference('Review', 'Review'),
                     value: Fields.text('Value')
                 }
             },
