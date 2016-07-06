@@ -316,7 +316,7 @@ A.app({
                     reviewer: Fields.FixedReference('Reviewer', 'Reviewer'),
                     status: Fields.FixedReference('Status', 'ReviewStatus'),
                     graduated: Fields.checkbox('Graduated'),
-                    next_cycle: Fields.checkbox('Next cycle')
+                    next_cycle: Fields.checkbox('Next cycle'),
                     comments: Fields.text('Comments')
                 }
             },
