@@ -298,14 +298,20 @@ A.app({
                     name: Fields.text('Name'),
                     email: Fields.text('Email'),
                     reviews: Fields.relation('Reviews', 'Review', 'reviewer')
-                }
+                },
+                sorting: [
+                    ['name', 1]
+                ]
             },
             ReviewStatus: {
                 title: 'Review Status',
                 referenceName: 'value',
                 fields: {
                     value: Fields.text('Value')
-                }
+                },
+                sorting: [
+                    ['value',1]
+                ]
             },
             Review: {
                 title: 'Review',
@@ -314,6 +320,9 @@ A.app({
                     write: ['eval'],
                     delete: null
                 },
+                sorting: [
+                    ['student', 1]
+                ],
                 fields: {
                     student: Fields.fixedReference('Student', 'Student'),
                     reviewer: Fields.fixedReference('Reviewer', 'Reviewer'),
