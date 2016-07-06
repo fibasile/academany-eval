@@ -338,7 +338,7 @@ A.app({
                     ReviewsPending: {
                         title: 'Pending',
                         filtering: function (Queries) {
-                              Queries.filtering({'status': '577d05a5ff61ac03001beccb' } );                                     
+                              return Queries.filtering({'status': '577d05a5ff61ac03001beccb' } );                                     
                              
                         }
                     },
