@@ -337,12 +337,9 @@ A.app({
                 views: {
                     ReviewsPending: {
                         title: 'Pending',
-                        filtering: function (Queries, Crud) {
-                             var crud = Crud.crudFor('ReviewStatus');
-                             return crud.find({filtering:  { value: 'Assigned'}}).then(function(items){
-                                 var status = items[0];
-                                 return Queries.filtering({'status': status._id } );                                     
-                             });
+                        filtering: function (Queries) {
+                              Queries.filtering({'status': '577d05a5ff61ac03001beccb' } );                                     
+                             
                         }
                     },
                     ReviewsProgress: {
