@@ -336,13 +336,13 @@ A.app({
                 },
                 views: {
                     ReviewsPending: {
-                        title: 'Pending'
+                        title: 'Pending',
                         filtering: function (Queries) {
                             return Queries.filtering({'status.value': 'Assigned'});
                         }
                     },
                     ReviewsProgress: {
-                        title: 'In Progress'
+                        title: 'In Progress',
                         filtering: function (Queries) {
                             return Queries.filtering({'status.value': 'In Progress'});
                         }
