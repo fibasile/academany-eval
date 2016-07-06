@@ -338,7 +338,7 @@ A.app({
                     ReviewsPending: {
                         title: 'Pending',
                         filtering: function (Queries) {
-                            return Queries.filtering({'status.value': 'Assigned'});
+                            return Queries.filtering({'status': { value: 'Assigned'} });
                         }
                     },
                     ReviewsProgress: {
