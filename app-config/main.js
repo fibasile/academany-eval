@@ -292,7 +292,7 @@ A.app({
                 },
                 fields: {
                     name: Fields.text('Name'),
-                    email: Fields.Text('Email'),
+                    email: Fields.text('Email'),
                     reviews: Fields.Relation('Reviews', 'Reviews', 'reviewer')
                 }
             },
