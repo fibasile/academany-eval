@@ -344,22 +344,14 @@ A.app({
                     },
                     ReviewsProgress: {
                         title: 'In Progress',
-                        filtering: function (Queries, Crud) {
-                             var crud = Crud.crudFor('ReviewStatus');
-                             return crud.find({filtering:  { value: 'In Progress'}}).then(function(items){
-                                 var status = items[0];
-                                 return Queries.filtering({'status': status._id} );                                     
-                             });
+                        filtering: function (Queries) {
+                                 return Queries.filtering({'status': '577d05b9ff61ac03001beccc'} );                                     
                         }
                     },
                     ReviewsCompleted: {
                         title: 'Completed',
                         filtering: function (Queries, Crud) {
-                             var crud = Crud.crudFor('ReviewStatus');
-                             return crud.find({filtering:{ value: 'Completed'}}).then(function(items){
-                                 var status = items[0];
-                                 return Queries.filtering({'status': status._id} );                                     
-                             });
+                                 return Queries.filtering({'status': '577d05bfff61ac03001beccd'} );                                     
                         }
                     }
                 }
