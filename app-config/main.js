@@ -331,8 +331,8 @@ A.app({
                     ['student', 1]
                 ],
                 fields: {
-                    student: Fields.fixedReference('Student', 'Student'),
-                    reviewer: Fields.fixedReference('Reviewer', 'Reviewer'),
+                    student: Fields.reference('Student', 'Student'),
+                    reviewer: Fields.reference('Reviewer', 'Reviewer'),
                     status: Fields.fixedReference('Status', 'ReviewStatus'),
                     graduated: Fields.checkbox('Graduated'),
                     next_cycle: Fields.checkbox('Next cycle'),
