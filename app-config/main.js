@@ -293,7 +293,7 @@ A.app({
                 fields: {
                     name: Fields.text('Name'),
                     email: Fields.text('Email'),
-                    reviews: Fields.Relation('Reviews', 'Reviews', 'reviewer')
+                    reviews: Fields.relation('Reviews', 'Reviews', 'reviewer')
                 }
             },
             ReviewStatus: {
