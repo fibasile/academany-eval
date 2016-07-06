@@ -337,20 +337,32 @@ A.app({
                 views: {
                     ReviewsPending: {
                         title: 'Pending',
-                        filtering: function (Queries) {
-                            return Queries.filtering({'status': { value: 'Assigned'} });
+                        filtering: function (Queries, Crud) {
+                             var crud = Crud.crudFor('ReviewStatus');
+                             return crud.find({filtering:  { value: 'Assigned'}}).then(function(items){
+                                 var status = items[0];
+                                 return Queries.filtering({'status': status._id );                                     
+                             });
                         }
                     },
                     ReviewsProgress: {
                         title: 'In Progress',
-                        filtering: function (Queries) {
-                            return Queries.filtering({'status.value': 'In Progress'});
+                        filtering: function (Queries, Crud) {
+                             var crud = Crud.crudFor('ReviewStatus');
+                             return crud.find({filtering:  { value: 'In Progress'}}).then(function(items){
+                                 var status = items[0];
+                                 return Queries.filtering({'status': status._id );                                     
+                             });
                         }
                     },
                     ReviewsCompleted: {
                         title: 'Completed',
-                        filtering: function (Queries) {
-                            return Queries.filtering({'status.value': 'Completed'});
+                        filtering: function (Queries, Crud) {
+                             var crud = Crud.crudFor('ReviewStatus');
+                             return crud.find({filtering:{ value: 'Completed'}}).then(function(items){
+                                 var status = items[0];
+                                 return Queries.filtering({'status': status._id );                                     
+                             });
                         }
                     }
                 }
