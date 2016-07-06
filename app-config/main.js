@@ -341,7 +341,7 @@ A.app({
                              var crud = Crud.crudFor('ReviewStatus');
                              return crud.find({filtering:  { value: 'Assigned'}}).then(function(items){
                                  var status = items[0];
-                                 return Queries.filtering({'status': status._id );                                     
+                                 return Queries.filtering({'status': status._id } );                                     
                              });
                         }
                     },
@@ -351,7 +351,7 @@ A.app({
                              var crud = Crud.crudFor('ReviewStatus');
                              return crud.find({filtering:  { value: 'In Progress'}}).then(function(items){
                                  var status = items[0];
-                                 return Queries.filtering({'status': status._id );                                     
+                                 return Queries.filtering({'status': status._id} );                                     
                              });
                         }
                     },
@@ -361,7 +361,7 @@ A.app({
                              var crud = Crud.crudFor('ReviewStatus');
                              return crud.find({filtering:{ value: 'Completed'}}).then(function(items){
                                  var status = items[0];
-                                 return Queries.filtering({'status': status._id );                                     
+                                 return Queries.filtering({'status': status._id} );                                     
                              });
                         }
                     }
