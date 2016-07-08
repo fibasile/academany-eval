@@ -312,6 +312,10 @@ A.app({
             },
             ReviewStatus: {
                 title: 'Evaluations Status',
+                permissions: {
+                    read: ['eval'],
+                    delete: null
+                },
                 referenceName: 'value',
                 fields: {
                     value: Fields.text('Value')
@@ -367,7 +371,7 @@ A.app({
                 permissions: {
                     read: null,
                     write: ['instruct', 'eval'],
-                    delete: ['eval']
+                    delete: null
                 },
                 fields: {
                     name: Fields.text('Name'),
