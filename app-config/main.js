@@ -332,7 +332,8 @@ A.app({
                     delete: null
                 },
                 sorting: [
-                    ['student', 1]
+                    ['student', 1],
+                    ['status',1]
                 ],
                 showInGrid: ['student', 'reviewer', 'status', 'graduated', 'next_cycle'],
                 fields: {
