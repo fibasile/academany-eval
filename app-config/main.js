@@ -314,6 +314,7 @@ A.app({
                 title: 'Evaluations Status',
                 permissions: {
                     read: ['eval'],
+                    write: null,
                     delete: null
                 },
                 referenceName: 'value',
